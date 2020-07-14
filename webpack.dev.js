@@ -52,7 +52,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.glsl/,
+        test: /\.glsl$/,
         exclude: /(node_modules)/,
         loader: 'webpack-glsl-loader'
       },
@@ -62,7 +62,7 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       },
       {
-        test: /\.png|\.jpg/,
+        test: /\.(png|jpg|glb)$/,
         exclude: /(node_modules)/,
         use: ['url-loader']
       }
