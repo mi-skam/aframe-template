@@ -5,6 +5,7 @@ var path = require('path');
 var webpack = require('webpack');
 
 PLUGINS = [
+  new webpack.EnvironmentPlugin(['NODE_ENV']),
   new webpack.HotModuleReplacementPlugin()
 ];
 
@@ -14,11 +15,11 @@ module.exports = {
     hotOnly: true
   },
   entry: {
-    app: './src/index.js'
+    build: './src/index.js'
   },
   output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: __dirname,
+    filename: 'dist/[name].js'
   },
   plugins: PLUGINS,
   module: {
