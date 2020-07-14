@@ -6,6 +6,8 @@
     "start": "webpack-dev-server --config webpack.dev.js --https --host 0.0.0.0 --hot-only --inline"
   },
   "dependencies": {
+    "qs": ">=6.9.4",
+    "serialize-javascript": ">=4.0.0",
     "@babel/cli": "^7.10.4",
     "@babel/core": "^7.10.4",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
