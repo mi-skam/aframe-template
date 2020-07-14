@@ -6,6 +6,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 
 module.exports = merge(common, {
+  devServer: {
+    hot: true
+  },
   mode: 'development',
   output: {
     filename: '[name].bundle.js',
@@ -18,6 +21,15 @@ module.exports = merge(common, {
   ],
   module: {
     rules: [
+      {
+        test: /\.js/,
+        exclude: /(node_modules)/,
+        use: ['aframe-super-hot-loader']
+      },
+      {
+        test: /\.html$/,
+        use: ["aframe-super-hot-html-loader"]
+      },
       {
         test: /\.sccs$/,
         use: [
