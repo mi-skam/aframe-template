@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>gltf loader example</title>
+
+  <script
+    src="https://cdn.jsdelivr.net/gh/aframevr/aframe@a79aaa629d8299e6d66cd0655a0221db237376ee/dist/aframe-master.min.js"></script>
+</head>
+
+<body>
+  <a-scene>
+    <a-assets>
+      <a-asset-item id="bench" src="assets/bench.gltf"></a-asset-item>
+    </a-assets>
+
+    <a-entity position="0 -1 1.5">
+      <a-camera></a-camera>
+    </a-entity>
+
+    <a-entity gltf-model="#bench" position="0 -1.38609 0"></a-entity>
+  </a-scene>
+
+</body>
+
+</html>
