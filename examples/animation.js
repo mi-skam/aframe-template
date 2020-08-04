@@ -1,9 +1,3 @@
-/* global AFRAME, THREE */
-
-/**
- * Player for animation clips. Intended to be compatible with any model format that supports
- * skeletal or morph animations.
- */
 AFRAME.registerComponent('animation-control', {
   schema: {
     target: { type: 'string' },
