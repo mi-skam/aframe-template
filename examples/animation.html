@@ -1,41 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>animation example</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>animation example</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+    <script src="animation.js"></script>
+  </head>
 
-  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
-  <script src="animation.js"></script>
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-asset-item id="parrotModel" src="assets/Parrot.glb"></a-asset-item>
+      </a-assets>
 
-</head>
+      <a-entity position="1 -1 1.5">
+        <a-camera>
+          <a-cursor raycaster="objects: .clickable"></a-cursor>
+        </a-camera>
+      </a-entity>
 
-<body>
-  <a-scene>
-    <a-assets>
-      <a-asset-item id="parrotModel" src="assets/Parrot.glb"></a-asset-item>
-    </a-assets>
+      <a-entity
+        id="parrot"
+        gltf-model="#parrotModel"
+        position="3 0 -2"
+        rotation="0 -45 0"
+        scale="0.03 0.03 0.03"
+      >
+      </a-entity>
 
-    <a-entity position="1 -1 1.5">
-      <a-camera>
-        <a-cursor raycaster="objects: .clickable"></a-cursor>
-      </a-camera>
-    </a-entity>
-
-    <a-entity id="parrot" gltf-model="#parrotModel" position="3 0 -2" rotation="0 -45 0" scale="0.03 0.03 0.03">
-    </a-entity>
-
-    <!-- Play -->
-    <a-box class="clickable" animation-control="target: #parrot; clip: parrot_A_; timeScale: 1" color="#00aa00"
-      position="0 0 -7">
-    </a-box>
-    <!-- Pause -->
-    <a-box class="clickable" animation-control="target: #parrot; clip: parrot_A_; timeScale: 0" color="#aa0000"
-      position="2 0 -7">
-  </a-scene>
-
-</body>
-
+      <!-- Play -->
+      <a-box
+        class="clickable"
+        animation-control="target: #parrot; clip: parrot_A_; timeScale: 1"
+        color="#00aa00"
+        position="0 0 -7"
+      >
+      </a-box>
+      <!-- Pause -->
+      <a-box
+        class="clickable"
+        animation-control="target: #parrot; clip: parrot_A_; timeScale: 0"
+        color="#aa0000"
+        position="2 0 -7"
+      ></a-box>
+    </a-scene>
+  </body>
 </html>
