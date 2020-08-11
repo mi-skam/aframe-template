@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hit test example</title>
+
+    <!-- aframe-master: 0needed for webxr-property -->
+    <script src="https://rawgit.com/aframevr/aframe/master/dist/aframe-master.min.js
+  "></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+    <script src="hit-test.js"></script>
+  </head>
+
+  <body>
+    <a-scene webxr="requiredFeatures: hit-test,local-floor;">
+      <a-assets>
+        <a-asset-item
+          id="reticleM"
+          src="assets/reticle.gltf"
+          response-type="arraybuffer"
+        ></a-asset-item>
+        <a-asset-item id="benchM" src="assets/bench.gltf"></a-asset-item>
+      </a-assets>
+
+      <a-camera position="0 1.2 0"></a-camera>
+
+      <a-entity
+        id="bench"
+        gltf-model="#benchM"
+        position="0 -2 -3"
+        shadow="cast: true; receive: false"
+        visible="true"
+      >
+        <a-plane
+          height="30"
+          width="30"
+          rotation="-90 0 0"
+          shadow="receive: true"
+          ar-shadows="opacity: 0.2"
+          visible="false"
+        >
+        </a-plane
+      ></a-entity>
+      <a-entity light="type: hemisphere; intensity: 1"></a-entity>
+      <a-light
+        type="directional"
+        light="castShadow: true;
+                      shadowMapHeight: 1024;
+                      shadowMapWidth: 1024;
+                      shadowCameraLeft: -7;
+                      shadowCameraRight: 5;
+                      shadowCameraBottom: -5;
+                      shadowCameraTop: 5;"
+        id="light"
+        target="bench"
+        position="-2 4 2"
+      >
+      </a-light>
+      <a-entity
+        id="reticle"
+        gltf-model="#reticleM"
+        scale="0.8 0.8 0.8"
+        ar-hit-test
+      ></a-entity>
+    </a-scene>
+  </body>
+</html>
